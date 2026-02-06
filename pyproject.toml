@@ -1,0 +1,12 @@
+[project]
+name = "aeroval-model-checker"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pyaerocom>=0.36.0",
+    "rich>=14.3.2",
+    "typer>=0.21.1",
+    "xarray>=2026.1.0",
+]

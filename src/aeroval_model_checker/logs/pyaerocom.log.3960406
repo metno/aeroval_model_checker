@@ -1,0 +1,613 @@
+2026-02-06 11:38:29:pyaerocom:205/205M:WARNING:Use of pyaerocom.const is deprecated. Please use Config.get_instance() or pyaerocom.config instead.
+2026-02-06 11:38:29:pyaerocom.config_reader:205/205M:INFO:using default config file: /lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/data/paths.ini
+2026-02-06 11:38:29:pyaerocom.config_reader:205/205M:INFO:Checking access to: /lustre/storeB/project
+2026-02-06 11:38:29:pyaerocom.config_reader:205/205M:INFO:Checking access to: /lustre/storeB/project/aerocom/aerocom1
+2026-02-06 11:38:29:pyaerocom.config_reader:205/205M:INFO:Checking access to: /lustre/storeB/project/aerocom/aerocom1/AEROCOM_OBSDATA/AeronetSunV3Lev1.5.daily/renamed
+2026-02-06 11:38:30:pyaerocom.io.iris_io:233/238M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concbsoa_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:233/238M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:233/238M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concbsoa_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:233/238M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:231/239M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concdd10_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:231/239M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:231/239M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concdd10_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:231/239M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/239M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concdd25_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/239M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/239M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concdd25_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/239M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concec_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concec_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concnh4_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concnh4_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concno3c_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concno3c_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concno3f_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concno3f_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concoc25_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concoc25_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concom25_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concom25_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concpoa_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concpoa_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concso4_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concso4_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concsoa_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concsoa_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concsoaanthro_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concsoaanthro_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concss10_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concss10_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concss25_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:INFO:Attempting to correct time coordinate using information in file name
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid time dimension coordinate in file:
+/lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_concss25_Surface_2019_daily.nc.
+Error: repr(Could not convert time unit string)
+Attempting to correct time coordinate using information in file nameUnable to correct time dimension using the information provided in the file name. Error:
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 403, in check_time_coord
+    cftime_to_datetime64(0, cfunit=tdim.units)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/units/datetime/utils.py", line 229, in cftime_to_datetime64
+    calendar in ["gregorian", "standard"] and basedate > GREGORIAN_BASE
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "src/cftime/_cftime.pyx", line 1438, in cftime._cftime.datetime.__richcmp__
+TypeError: cannot compare cftime.DatetimeGregorian(-1, 11, 30, 0, 0, 0, 0, has_year_zero=False) and datetime.datetime(1582, 10, 15, 0, 0) (different calendars)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 338, in _check_correct_time_dim
+    check_time_coord(cube, ts_type, year)
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 405, in check_time_coord
+    raise ValueError("Could not convert time unit string")
+ValueError: Could not convert time unit string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 349, in _check_correct_time_dim
+    cube = correct_time_coord(cube, ts_type=finfo["ts_type"], year=finfo["year"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 532, in correct_time_coord
+    raise UnresolvableTimeDefinitionError(
+pyaerocom.exceptions.UnresolvableTimeDefinitionError: expected 365 timestamps for 2019 and freq daily but got 2
+.
+
+The file will be imported regardless!
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Invalid long_name reference_time for coord time in cube. Overwriting with Time
+2026-02-06 11:38:30:pyaerocom.io.iris_io:232/240M:WARNING:Failed to load /lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_vmrc2h6_Surface_2019_daily.nc. Reason: Traceback (most recent call last):
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 85, in load_cubes_custom
+    cube = load_cube_custom(
+           ^^^^^^^^^^^^^^^^^
+  File "/lustre/storeB/users/danielh/wp8/aeroval_model_checker/.venv/lib64/python3.11/site-packages/pyaerocom/io/iris_io.py", line 149, in load_cube_custom
+    raise NetcdfError(f"Variable {var_name} not available in file {file}")
+pyaerocom.exceptions.NetcdfError: Variable vmrc2h6 not available in file /lustre/storeB/users/danielh/wp8/data/modeldata/IFSCOMPO/IFSCOMPO_20260205_iyfb/aerocom3_CAMS-IFS-iyfb_vmrc2h6_Surface_2019_daily.nc
+
