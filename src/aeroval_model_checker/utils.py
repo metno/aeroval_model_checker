@@ -124,7 +124,9 @@ def check_modeldata(modelfile: Path, strict: bool) -> str:
     if not (found_lat and found_lon):
         return "Either latitude or longitude are missing"
 
-    if strict:
+    if not (
+        poll not in pya.config.VARS and not strict
+    ):  # Not 100% sure about this logic...
         try:
             to_unit_str = get_standard_unit(poll)
             to_unit = Unit(to_unit_str, aerocom_var=poll, ts_type=freq)

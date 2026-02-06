@@ -4,7 +4,7 @@ from pathlib import Path
 from rich import print
 import pyaerocom as pya
 
-from utils import (
+from aeroval_model_checker.utils import (
     print_error,
     print_success,
     filename_checker,

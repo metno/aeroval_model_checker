@@ -10,3 +10,8 @@ dependencies = [
     "typer>=0.21.1",
     "xarray>=2026.1.0",
 ]
+
+
+[project.scripts]
+
+aeroval_model_checker = "aeroval_model_checker.main:app"
