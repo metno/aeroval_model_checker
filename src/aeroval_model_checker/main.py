@@ -43,6 +43,7 @@ def main(
     ] = False,
 ):
 
+    success = True
     # Checking model directory
     print(":recycling_symbol: Looking for Models:")
     if not model_dir.is_dir():
@@ -66,7 +67,9 @@ def main(
         metadata, error = filename_checker(model.stem, strict)
         if error != "":
             print_error(error)
-            return
+            success = False
+            if strict:
+                return
 
         if found_model == "":
             found_model = metadata["model"]
@@ -75,7 +78,12 @@ def main(
             print_error(
                 f"Found more than one model in folder: {found_model} and {metadata['model']}. Place in two different folders."
             )
-            return
+            success = False
+            if strict:
+                return
+
+    if not success:
+        print_error("Check failed due to the above errors")
     print_success("All Filenames Look Good!")
 
     # Read modelfiles with xarray
@@ -88,8 +96,11 @@ def main(
 
         if error != "":
             print_error(error)
-            return
-
+            success = False
+            if strict:
+                return
+    if not success:
+        print_error("Check failed due to the above errors")
     # Initialize Pyaerocom
     print(":recycling_symbol: Trying to Initiate Pyaerocom Reader with model")
 
@@ -112,7 +123,11 @@ def main(
 
         if error != "":
             print_error(error)
-            return
+            if strict:
+                success = False
+                return
+    if not success:
+        print_error("Check failed due to the above errors")
 
     print_success(
         "Everything worked! File is still not guaranteed to work, but the chances have increased :fireworks:"
