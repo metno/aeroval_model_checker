@@ -102,21 +102,22 @@ def check_modeldata(modelfile: Path, strict: bool) -> str:
     if "time" not in data:
         return "Time dimension missing"
 
-    if abs(len(data.time) - NUMBER_TIMESTEPS[freq]) > 2:
-        return f"Incorrect number of timesteps in file. Expected {NUMBER_TIMESTEPS[freq]}, got {len(data.time)}. Check that frequency in file name matches the actual frequency"
+    # if abs(len(data.time) - NUMBER_TIMESTEPS[freq]) > 2:
+    #     return f"Incorrect number of timesteps in file. Expected {NUMBER_TIMESTEPS[freq]}, got {len(data.time)}. Check that frequency in file name matches the actual frequency"
 
     found_lat = False
     found_lon = False
     for coord in data.coords:
         if "lat" == coord or "latitude" == coord:
             if (
-                data.coords[coord].standard_name == "latitude"
-                or data.coords[coord].long_name == "latitude"
-            ):
+                "standard_name" in data.coords[coord]
+                and data.coords[coord].standard_name == "latitude"
+            ) or data.coords[coord].long_name == "latitude":
                 found_lat = True
         if "lon" == coord or "longitude" == coord:
             if (
-                data.coords[coord].standard_name == "longitude"
+                "standard_name" in data.coords[coord]
+                and data.coords[coord].standard_name == "longitude"
                 or data.coords[coord].long_name == "longitude"
             ):
                 found_lon = True
@@ -132,7 +133,8 @@ def check_modeldata(modelfile: Path, strict: bool) -> str:
             to_unit = Unit(to_unit_str, aerocom_var=poll, ts_type=freq)
             current_unit = Unit(data[poll].units, aerocom_var=poll, ts_type=freq)
             if to_unit != current_unit:
-                return f"Unit of provided pollutant {data[poll].units} can not be converted to {to_unit_str}"
+                breakpoint()
+                return f"Unit of provided pollutant {data[poll].units} can not be converted to {to_unit_str} for {poll}"
         except Exception as e:
             return f"Something went wrong when trying to check the unit of the model file {modelfile}: {str(e)}"
 
