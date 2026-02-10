@@ -3,8 +3,37 @@ from rich import print
 import pyaerocom as pya
 from iris.cube import Cube
 import xarray as xr
+
 from pyaerocom.units import Unit
 from pyaerocom.units.helpers import get_standard_unit
+
+import logging
+import traceback
+
+from functools import wraps
+
+import warnings
+
+warnings.filterwarnings("ignore")
+
+
+def suppress_logging(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        # Store original level
+        logger = logging.getLogger()
+        original_level = logger.level
+        # Set level to disable all logs
+        logger.setLevel(logging.CRITICAL + 1)
+        try:
+            # Call the function
+            return func(*args, **kwargs)
+        finally:
+            # Restore original level
+            logger.setLevel(original_level)
+
+    return wrapper
+
 
 # import warnings
 
@@ -73,7 +102,10 @@ def init_pya(model_dir: Path) -> tuple[pya.io.ReadUngridded | None, str]:
         return None, str(e)
 
 
-def try_read(reader: pya.io.ReadGridded, var: str) -> tuple[Cube | None, str]:
+@suppress_logging
+def try_read(
+    reader: pya.io.ReadGridded, var: str, verbose: bool
+) -> tuple[Cube | None, str]:
     try:
         data = reader.read(var)
         return data, ""
@@ -102,8 +134,8 @@ def check_modeldata(modelfile: Path, strict: bool) -> str:
     if "time" not in data:
         return "Time dimension missing"
 
-    # if abs(len(data.time) - NUMBER_TIMESTEPS[freq]) > 2:
-    #     return f"Incorrect number of timesteps in file. Expected {NUMBER_TIMESTEPS[freq]}, got {len(data.time)}. Check that frequency in file name matches the actual frequency"
+    if abs(len(data.time) - NUMBER_TIMESTEPS[freq]) > 2:
+        return f"Incorrect number of timesteps in file. Expected {NUMBER_TIMESTEPS[freq]}, got {len(data.time)}. Check that frequency in file name matches the actual frequency"
 
     found_lat = False
     found_lon = False
@@ -133,7 +165,6 @@ def check_modeldata(modelfile: Path, strict: bool) -> str:
             to_unit = Unit(to_unit_str, aerocom_var=poll, ts_type=freq)
             current_unit = Unit(data[poll].units, aerocom_var=poll, ts_type=freq)
             if to_unit != current_unit:
-                breakpoint()
                 return f"Unit of provided pollutant {data[poll].units} can not be converted to {to_unit_str} for {poll}"
         except Exception as e:
             return f"Something went wrong when trying to check the unit of the model file {modelfile}: {str(e)}"

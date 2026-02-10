@@ -60,6 +60,7 @@ def main(
 
     # Checking of filenames
     found_model = ""
+    file_vars = []
     print(":recycling_symbol: Checking Filenames:")
     for model in model_files:
         if verbose:
@@ -70,6 +71,8 @@ def main(
             success = False
             if strict:
                 return
+
+        file_vars.append(metadata["poll"])
 
         if found_model == "":
             found_model = metadata["model"]
@@ -84,6 +87,8 @@ def main(
 
     if not success:
         print_error("Check failed due to the above errors")
+        return
+
     print_success("All Filenames Look Good!")
 
     # Read modelfiles with xarray
@@ -101,6 +106,9 @@ def main(
                 return
     if not success:
         print_error("Check failed due to the above errors")
+        return
+
+    print_success("Found no problems using xarray")
     # Initialize Pyaerocom
     print(":recycling_symbol: Trying to Initiate Pyaerocom Reader with model")
 
@@ -115,19 +123,24 @@ def main(
 
     # Reading
     print(":recycling_symbol: Trying to Read Model Data")
-    for v in reader.vars_provided:
+    reader_vars = reader.vars_provided
+
+    intersect_vars = set(reader_vars) & set(file_vars)
+
+    for v in intersect_vars:
         if verbose:
             print_debug(f"Trying to load {v}")
 
-        data, error = try_read(reader, v)
+        data, error = try_read(reader, v, verbose)
 
         if error != "":
             print_error(error)
+            success = False
             if strict:
-                success = False
                 return
     if not success:
         print_error("Check failed due to the above errors")
+        return
 
     print_success(
         "Everything worked! File is still not guaranteed to work, but the chances have increased :fireworks:"
