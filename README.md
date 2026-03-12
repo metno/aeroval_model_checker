@@ -8,7 +8,9 @@ The checker is run on a folder containing the model files, and checks if
 2. If the files can be read by xarray, and if they contain the correct dimentions
 3. Checks if the varibale names in the files and in the file names match
 4. Check if the files can be read by pyAerocom
+## Requirements
 
+Python >= 3.11
 ## Installation
 
 ```
